@@ -17,8 +17,6 @@ config/swagger_options.js
 # Ignore SonarQube configuration file
 sonar-project.properties
 
-# Ignore package-lock.json
-package-lock.json
 
 # Ignore web.config file
 web.config
