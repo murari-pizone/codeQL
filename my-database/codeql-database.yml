@@ -1,0 +1,11 @@
+---
+sourceLocationPrefix: D:\codeQL
+baselineLinesOfCode: 3179
+unicodeNewlines: true
+columnKind: utf16
+primaryLanguage: javascript
+creationMetadata:
+  sha: fce7857f01f1f3682fc4f6359017deb28dff377b
+  cliVersion: 2.20.7
+  creationTime: 2025-03-19T05:58:49.430840500Z
+finalised: true

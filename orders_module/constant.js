@@ -1,0 +1,38 @@
+module.exports = {
+  ERROR: {
+    mrfOrder_id_check: '"swiggy_order_id" must be a number',
+    order_id_check: 'order_id, must be a valid number in string',
+    item_id_check: 'Item_id, must be a valid number in string',
+    external_id_check: ' external_order_id, must be a valid number in string',
+    external_id: ' External_id is not matching with order_id',
+    code: 106,
+    order_id: 'Order_id already exist ',
+    order_id_edit: 'Order_id does not exist',
+    order_edit: 'Order_edit not to be false ',
+    external_order_id: null,
+    description: 'error description',
+    itemCode: 131,
+    item_id: 'item_id does not exist with outlet_id',
+    item_subtotal: 'Subtotal price mismatch',
+    item_price: 'item price mismatch',
+    item_id_edit: 'item_id does not exist',
+    outletCode: 105,
+    outlet_id: 'outlet_id does not exist ',
+    outlet_id_edit: 'outlet_id does not exist',
+    order_MFR: 'The order cannot be confirmed with',
+    MFR: 'Food is already  marked as prepared',
+  },
+  SUCCESS: {
+    STATUS: 'OK',
+  },
+  KEY: {
+    CONFIRM: 'CONFIRM',
+    MFR: 'MFR',
+    S_HEADER: 'SWIGGY',
+    EDIT: 'PUTORDER',
+    ERP_H: 'ERP',
+  },
+  MESSAGE: {
+    PUSH: 'order was push successfully',
+  },
+};
