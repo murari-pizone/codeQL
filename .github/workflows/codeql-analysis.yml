@@ -1,4 +1,4 @@
-name: "CodeQL"
+name: "CodeQL Analysis"
 
 on:
   push:
@@ -7,10 +7,11 @@ on:
     branches: [main, dev]
   schedule:
     - cron: '0 12 * * 1'  # Weekly run (Every Monday at 12:00 UTC)
+  workflow_dispatch:  # Allows manual execution of the workflow
 
 jobs:
   analyze:
-    name: Analyze
+    name: Analyze Code with CodeQL
     runs-on: ubuntu-latest
     permissions:
       security-events: write
@@ -26,10 +27,32 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  # Ensure compatibility with your project
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci  # Ensures a clean install for accurate analysis
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
+          queries: security-and-quality  # Use security and quality checks
+          paths-ignore: |
+            node_modules/
+            dist/
+            coverage/
+            test/
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
